@@ -1,6 +1,3 @@
-/*Name: Zain mohamed saeed kazi
-roll no :  40
-uin: 251P037*/ // Author information comment
 #include<stdio.h> // Include standard input output library
 #include<math.h> // Include math library for pow function
 #include<ctype.h> // Include ctype library for isdigit
