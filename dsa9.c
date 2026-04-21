@@ -1,8 +1,6 @@
 #include <stdio.h> // Include stdio
 #include <stdlib.h> // Include stdlib
-/*NAME: TARIQ KHALIL BHATKAR
-UIN: 251P032
-ROLL NO: 31*/ // Author
+
 struct node // Node struct
 {
     int data;//stores values // Data
@@ -124,7 +122,6 @@ void display()
 int main()
 {
     int choice, value; // Choice value
-    printf("code: Tariq Bhatkar"); // Coder
     while(1) // Loop
     {
         printf("\n--- Circular Linked List (ADT) ---\n"); // Menu
