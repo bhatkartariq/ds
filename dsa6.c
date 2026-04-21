@@ -1,6 +1,3 @@
-/*Name : Bhatkar Tariq 
-Roll No : 31
-UIN: 251P032*/ // Author information
 #include <stdio.h> // Include stdio
 #include <stdlib.h> // Include stdlib
 #define size 10 // Define size
@@ -11,7 +8,6 @@ int cQueue[size] , front = -1, rear = -1; // Declare circular queue and pointers
 void main() // Main function // Main function
 {
     int value , choice;; // Declare value and choice
-    printf("\n\nCoded by:Bhatkar Tariq\n"); // Print coder
     while(1) // Infinite loop
     {
         printf("\n----MENU----\n\n"); // Print menu
