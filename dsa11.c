@@ -1,7 +1,5 @@
 #include <stdio.h> // Include stdio
 #include <stdlib.h> // Include stdlib
-/*Coder: Bhatkar Tariq Khalil
-UIN: 251P032*/ // Author
 struct node { // Node struct
     int data; // Data
     struct node *next; // Next
@@ -65,8 +63,6 @@ void display() {
 
 int main() { // Main
     int choice, value; // Choice value
-    printf("Coder: Bhatkar Tariq Khalil\n"); // Coder
-    printf("UIN: 251P032"); // UIN
     while (1) { // Loop
         printf("\n\n--- Queue Menu ---"); // Menu
         printf("\n1. Enqueue"); // 1
