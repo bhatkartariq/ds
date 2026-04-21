@@ -2,6 +2,7 @@
 #include<stdio.h> // Include standard input output library
 #include<stdlib.h> // Include standard library for exit function
 #define SIZE 10 // Define constant SIZE as 10 for stack size
+
 void push(int value); // Function prototype for push
 void pop(); // Function prototype for pop
 void display(); // Function prototype for display
@@ -55,12 +56,14 @@ void push(int value) // Push function
     }
 }
 void pop(){ // Pop function
-    if(top ==-1){ // Check if stack is empty
-    printf("\n stack is empty! deletion not possible"); // Print empty message
-}
-    else{
-    printf("delete element:"); // Print delete message
-    top--; // Decrement top
+    if(top ==-1) // Check if stack is empty
+    {
+        printf("\n stack is empty! deletion not possible"); // Print empty message
+    }
+    else
+    {
+        printf("\ndeleted element: %d", stack[top]); // Print deleted element value
+        top--; // Decrement top
     }
 }
 void display(){ // Display function
@@ -69,11 +72,12 @@ void display(){ // Display function
     {
         printf("\nstack is empty"); // Print empty
     }
-    else{
-        printf("\n stack elements are:"); // Print elements label
+    else
+    {
+        printf("\nstack elements are:\n"); // Print elements label
         for(i= top;i>=0;i--) // Loop from top to 0
         {
-            printf("%d\n",stack[i]); // Print element
+            printf("%d\n", stack[i]); // Print element on new line
         }
     }
 }
