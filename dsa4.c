@@ -1,112 +1,62 @@
-#include <stdio.h> // Include standard input output library
-#define SIZE 10 // Define SIZE as 10
-int queue[SIZE]; // Declare queue array
-int front = -1; // Initialize front to -1
-int rear = -1; // Initialize rear to -1
-void enqueue(); // Prototype enqueue
-void dequeue(); // Prototype dequeue
-void display(); // Prototype display
-int isFull(); // Prototype isFull
-int isEmpty(); // Prototype isEmpty
+/*Name: Zain mohamed saeed kazi
+roll no :  40
+uin: 251P037*/ // Author information comment
+#include<stdio.h> // Include standard input output library
+#include<math.h> // Include math library for pow function
+#include<ctype.h> // Include ctype library for isdigit
+int stack[50]; // Declare integer stack array
+int top=-1; // Declare and initialize top to -1
 
-int main() // Main function
+void push(int x) // Push function
 {
-    int choice; // Declare choice
-    while(1) // Infinite loop
-    {
-        printf("\n------ MENU ------\n"); // Print menu
-        printf("1. Enqueue\n"); // Option 1
-        printf("2. Dequeue\n"); // Option 2
-        printf("3. Display\n"); // Option 3
-        printf("4. Exit\n"); // Option 4
-        printf("Enter your choice: "); // Prompt choice
-        scanf("%d", &choice); // Read choice
+     top++; // Increment top
+     stack[top]=x; // Assign x to stack
+}
+int pop(){ // Pop function
+    int y; // Declare y
+    y=stack[top]; // Assign top to y
+    top--; // Decrement top
+    return y; // Return y
+}
 
-        switch(choice) // Switch
+
+int main(){ // Main function
+    char exp[50]; // Declare expression array
+    int i = 0, op1,op2,result; // Declare variables
+    printf("Enter the postfix expression:"); // Prompt for postfix
+    scanf("%s",exp); // Read expression
+    while (exp[i]!='\0') // Loop through expression
+    {
+        if(isdigit(exp[i])) // If digit
         {
-            case 1:
-                enqueue(); // Call enqueue
+            push(exp[i]-'0'); // Push digit value
+        }
+        else // Else operator
+        {
+            op1=pop(); // Pop op1
+            op2=pop(); // Pop op2
+            switch (exp[i]) // Switch on operator
+            {
+            case '+': // Addition
+                push(op2+op1); // Push sum
                 break;
-            case 2:
-                dequeue(); // Call dequeue
+            case'-': // Subtraction
+                push(op2-op1); // Push difference
                 break;
-            case 3:
-                display(); // Call display
+            case'*': // Multiplication
+                push(op2*op1); // Push product
                 break;
-            case 4:
-                printf("Program ended.\n"); // Print end
-                return 0; // Return 0
-            default:
-                printf("Invalid choice! Please try again.\n"); // Invalid
+            case'/': // Division
+                push(op2/op1); // Push quotient
+                break;
+            case'^': // Power
+                push(pow(op2,op1)); // Push power
+                break;
+            }
         }
+        i++; // Increment i
     }
-    return 0;
-}
-
-void enqueue() // Enqueue function
-{
-    int element; // Declare element
-    if(isFull()) // If full
-    {
-        printf("Queue is full! Cannot enqueue.\n"); // Print full
-    }
-    else
-    {
-        printf("Enter element to enqueue: "); // Prompt element
-        scanf("%d", &element); // Read element
-        if(front == -1) // If first element
-        {
-            front = 0; // Set front to 0
-        }
-        rear++; // Increment rear
-        queue[rear] = element; // Assign element
-        printf("Element %d enqueued successfully.\n", element); // Success
-    }
-}
-
-void dequeue() // Dequeue function
-{
-    if(isEmpty()) // If empty
-    {
-        printf("Queue is empty! Cannot dequeue.\n"); // Print empty
-    }
-    else
-    {
-        int element = queue[front]; // Get front element
-        if(front == rear) // If only one element
-        {
-            front = -1; // Reset front
-            rear = -1; // Reset rear
-        }
-        else
-        {
-            front++; // Increment front
-        }
-        printf("Element %d dequeued successfully.\n", element); // Success
-    }
-}
-
-void display() // Display function
-{
-    if(isEmpty()) // If empty
-    {
-        printf("Queue is empty.\n"); // Print empty
-    }
-    else
-    {
-        printf("Queue elements: "); // Print label
-        for(int i = front; i <= rear; i++) // Loop from front to rear
-        {
-            printf("%d ", queue[i]); // Print element
-        }
-        printf("\n"); // Newline
-    }
-}
-int isFull() // isFull function
-{
-    return rear == SIZE - 1; // Return if rear at max
-}
-int isEmpty() // isEmpty function
-{
-    return front == -1; // Return if front -1
+    result= pop(); // Pop result
+    printf("\nThe answer of postfix exppression %s= %d\n",exp,result); // Print result
+    return 0; // Return 0
 }
