@@ -1,7 +1,3 @@
-
-/*NAME: TARIQ KHALIL BHATKAR
-UIN: 251P032
-ROLL NO: 31*/ 
 // Include standard input output library for printf and scanf
 #include <stdio.h>
 // Define a constant size as 10 for the array
