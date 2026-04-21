@@ -1,8 +1,5 @@
 #include <stdio.h> // Include stdio
 #include <stdlib.h> // Include stdlib
-/*NAME: TARIQ KHALIL BHATKAR
-UIN: 251P032
-ROLL NO: 31*/ // Author
 // ADT Node (BST) // Node struct
 typedef struct Node {
     int data; // Data
@@ -100,7 +97,6 @@ void display(Node* root) {
 int main() {
     Node* root = NULL; // Root null
     int choice, value; // Choice value
-    printf("code: Tariq Bhatkar"); // Coder
     while (1) { // Loop
         printf("\n--- BST MENU ---\n"); // Menu
         printf("1. Insert\n"); // 1
