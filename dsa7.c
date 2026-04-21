@@ -1,9 +1,6 @@
 #include<stdio.h> // Include stdio
 #include<stdlib.h> // Include stdlib
-/*coder : tariq bhatkar 
-uin : 251P032
-roll no :31
-*/ // Author
+
 //structue of node // Node structure comment
 struct node
 {
@@ -148,7 +145,7 @@ void display(){ // Display
 }
 int main() // Main function
 {
-    printf("coder: Tariq bhatkar"); // Print coder
+    
     int choice; // Declare choice variable
 
     while(1) // Infinite loop
