@@ -1,57 +1,47 @@
-#include <stdio.h>
-#include <stdlib.h>
-
+#include <stdio.h> // Include stdio
+#include <stdlib.h> // Include stdlib
 /*Coder: Bhatkar Tariq Khalil
-UIN: 251P032*/
-struct node {
-    int data;
-    struct node *next;
+UIN: 251P032*/ // Author
+struct node { // Node struct
+    int data; // Data
+    struct node *next; // Next
 };
+struct node *front = NULL; // Front
+struct node *rear = NULL; // Rear
 
-struct node *front = NULL;
-struct node *rear = NULL;
-
-void enqueue() {
-    int value;
-    struct node *newnode;
-    newnode = (struct node*)malloc(sizeof(struct node));
-    printf("\nEnter value: ");
-    scanf("%d", &value);
-
-    if (newnode == NULL) {
-        printf("\nOverflow");
-        return;
+void enqueue() { // Enqueue
+    int value; // Value
+    struct node *newnode; // New node
+    newnode = (struct node*)malloc(sizeof(struct node)); // Allocate
+    printf("\nEnter value: "); // Prompt
+    scanf("%d", &value); // Read
+    if (newnode == NULL) { // If failed
+        printf("\nOverflow"); // Overflow
+        return; // Return
     }
-
-    newnode->data = value;
-    newnode->next = NULL;
-
-    if (front == NULL && rear == NULL) {
-        front = rear = newnode;
+    newnode->data = value; // Assign
+    newnode->next = NULL; // Set next null
+    if (front == NULL && rear == NULL) { // If empty
+        front = rear = newnode; // Set both
     } else {
-        rear->next = newnode;
-        rear = newnode;
+        rear->next = newnode; // Link
+        rear = newnode; // Update rear
     }
-
-    printf("%d Inserted Successfully", value);
+    printf("%d Inserted Successfully", value); // Success
 }
 
-void dequeue() {
-    struct node *temp;
-
-    if (front == NULL) {
-        printf("\nUnderflow");
-        return;
+void dequeue() { // Dequeue
+    struct node *temp; // Temp
+    if (front == NULL) { // If empty
+        printf("\nUnderflow"); // Underflow
+        return; // Return
     }
-
-    temp = front;
-    printf("%d Deleted Successfully", front->data);
-    
-    front = front->next;
-    
-    free(temp);
-    if (front == NULL) {
-        rear = NULL;
+    temp = front; // Temp to front
+    printf("%d Deleted Successfully", front->data); // Print deleted
+    front = front->next; // Update front
+    free(temp); // Free temp
+    if (front == NULL) { // If empty now
+        rear = NULL; // Set rear null
     }
 }
 
@@ -73,42 +63,34 @@ void display() {
     printf("NULL");
 }
 
-int main() {
-    int choice, value;
-    
-    printf("Coder: Bhatkar Tariq Khalil\n");
-    printf("UIN: 251P032");
-
-    while (1) {
-        printf("\n\n--- Queue Menu ---");
-        printf("\n1. Enqueue");
-        printf("\n2. Dequeue");
-        printf("\n3. Display");
-        printf("\n4. Exit");
-        printf("\nEnter choice: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
+int main() { // Main
+    int choice, value; // Choice value
+    printf("Coder: Bhatkar Tariq Khalil\n"); // Coder
+    printf("UIN: 251P032"); // UIN
+    while (1) { // Loop
+        printf("\n\n--- Queue Menu ---"); // Menu
+        printf("\n1. Enqueue"); // 1
+        printf("\n2. Dequeue"); // 2
+        printf("\n3. Display"); // 3
+        printf("\n4. Exit"); // 4
+        printf("\nEnter choice: "); // Prompt
+        scanf("%d", &choice); // Read
+        switch (choice) { // Switch
             case 1:
-                enqueue();
+                enqueue(); // Call
                 break;
-
             case 2:
-                dequeue();
+                dequeue(); // Call
                 break;
-
             case 3:
-                display();
+                display(); // Call
                 break;
-
             case 4:
-                printf("Exit Successful");
-                exit(0);
-
+                printf("Exit Successful"); // Exit
+                exit(0); // Exit
             default:
-                printf("\nInvalid choice");
+                printf("\nInvalid choice"); // Invalid
         }
     }
-
-    return 0;
+    return 0; // Return
 }
