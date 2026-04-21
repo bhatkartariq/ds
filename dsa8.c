@@ -1,9 +1,5 @@
 #include<stdio.h> // Include stdio
 #include<stdlib.h>//for malloc // Include stdlib
-/*coder : tariq bhatkar 
-uin : 251P032
-roll no :31
-*/ // Author
 //define struct // Struct
 struct node
 {
@@ -59,7 +55,7 @@ void display() // Display
 }
 int main() // Main
 {
-    printf("coder: Tariq bhatkar"); // Coder
+    
     int choice; // Choice
     while(1) // Loop
     {
