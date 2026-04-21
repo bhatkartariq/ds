@@ -1,6 +1,3 @@
-/*NAME: TARIQ KHALIL BHATKAR
-UIN: 251P032
-ROLL NO: 31*/ // Author information comment
 #include<stdio.h> // Include standard input output library
 #include<string.h> // Include string library for strlen (though not used)
 #include<ctype.h>//for isalnum() // Include ctype for isalnum function
