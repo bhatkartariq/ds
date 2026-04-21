@@ -1,111 +1,91 @@
-#include<stdio.h>
-#include<stdlib.h>//for malloc
-
+#include<stdio.h> // Include stdio
+#include<stdlib.h>//for malloc // Include stdlib
 /*coder : tariq bhatkar 
 uin : 251P032
 roll no :31
-*/
-
-//define struct 
+*/ // Author
+//define struct // Struct
 struct node
 {
-    int data;//store values 
-    struct node *next; //store address
-       
-};
-struct node *top=NULL;
-void push()
+    int data;//store values // Data
+    struct node *next; //store address // Next
+}; // Close struct definition
+struct node *top=NULL; // Top pointer
+void push() // Push
 {
-    struct node*newnode;
-    int value ;
-
-    newnode=(struct node*)malloc(sizeof(struct node));
-    
-    if (newnode==NULL)
+    struct node*newnode; // New node
+    int value ; // Value
+    newnode=(struct node*)malloc(sizeof(struct node)); // Allocate
+    if (newnode==NULL) // If failed
     {
-        printf("\nStack overflow");
-        return;
+        printf("\nStack overflow"); // Overflow
+        return; // Return
     }
-
-    printf("\nenter value to push ");
-    scanf("%d",&value);
-
-    newnode->data=value;
-    newnode->next=top;
-    top=newnode;
-
-    printf("\nelement inserted !!");
-
+    printf("\nenter value to push "); // Prompt
+    scanf("%d",&value); // Read
+    newnode->data=value; // Assign
+    newnode->next=top; // Link
+    top=newnode; // Update top
+    printf("\nelement inserted !!"); // Success
 }
 
-void pop()
+void pop() // Pop
 {
-    struct node*temp;
-    if (top==NULL)
+    struct node*temp; // Temp
+    if (top==NULL) // If empty
     {
-        printf("\nstack underflow ");
-        return;
-
+        printf("\nstack underflow "); // Underflow
+        return; // Return
     }
-    temp=top;  
-    top=top->next;
-    printf("\npopped element:%d",temp->data);
-    
-    
-    
-    free(temp);
-
+    temp=top; // Temp to top
+    top=top->next; // Update top
+    printf("\npopped element:%d",temp->data); // Print popped
+    free(temp); // Free temp
 }
-void display()
+void display() // Display
 {
-    struct node* temp = top;
-
-    if (temp == NULL)
+    struct node* temp = top; // Temp to top
+    if (temp == NULL) // If empty
     {
-        printf("\nstack underflow ");
-        return;
+        printf("\nstack underflow "); // Underflow
+        return; // Return
     }
-
-    while (temp != NULL)
+    while (temp != NULL) // Traverse
     {
-        printf("%d->", temp->data);
-        temp = temp->next;
+        printf("%d->", temp->data); // Print
+        temp = temp->next; // Move
     }
-    printf("NULL");
+    printf("NULL"); // NULL
 }
-int main()
+int main() // Main
 {
-    printf("coder: Tariq bhatkar");
-    int choice;
-
-    while(1)
+    printf("coder: Tariq bhatkar"); // Coder
+    int choice; // Choice
+    while(1) // Loop
     {
-        printf("\n--- Stack using Linked List Menu ---\n");
-        printf("1 push\n");
-        printf("2 pop\n");
-        printf("3 Display\n");
-        printf("4 Exit\n");
-
-        printf("Enter choice: ");
-        scanf("%d",&choice);
-
-        switch(choice)
+        printf("\n--- Stack using Linked List Menu ---\n"); // Menu
+        printf("1 push\n"); // 1
+        printf("2 pop\n"); // 2
+        printf("3 Display\n"); // 3
+        printf("4 Exit\n"); // 4
+        printf("Enter choice: "); // Prompt
+        scanf("%d",&choice); // Read
+        switch(choice) // Switch
         {
             case 1: 
-            push();
+            push(); // Call
             break;
             case 2:
-            pop();
+            pop(); // Call
             break;
             case 3:
-            display();
+            display(); // Call
             break;
             case 4:
-            exit(0);
+            exit(0); // Exit
             default: 
-            printf("Invalid choice\n");
+            printf("Invalid choice\n"); // Invalid
         }
     }
-
-    return 0;
+    return 0; // Return
 }
