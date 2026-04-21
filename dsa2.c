@@ -1,6 +1,4 @@
-/*NAME: TARIQ KHALIL BHATKAR
-UIN: 251P032
-ROLL NO: 31*/ // Author information comment
+
 #include<stdio.h> // Include standard input output library
 #include<stdlib.h> // Include standard library for exit function
 #define SIZE 10 // Define constant SIZE as 10 for stack size
